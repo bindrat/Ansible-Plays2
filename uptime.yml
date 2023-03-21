@@ -8,3 +8,9 @@
   - debug: var={{item}}
     with_items:
      - uptime.stdout
+     
+  - name: Disk usage from command module
+    command: df -h
+    register: space
+  - debug:
+          var: space.stdout_lines
